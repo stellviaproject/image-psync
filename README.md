@@ -131,6 +131,6 @@ func MakeSumAroundParallel(slice2d [][]float64, size, parallel int) [][]float64 
 
 ### License
 
-This code is available under the MIT License, which is a free and open source license. The terms and conditions of the license can be found at [enlace](https://github.com/stellviaproject/image-psync/LICENSE).
+This code is available under the MIT License, which is a free and open source license. The terms and conditions of the license can be found at [enlace](https://github.com/stellviaproject/image-psync/blob/master/LICENSE).
 
 By using this code, you are required to follow the terms and conditions of the MIT License, which include including a copy of the license in the software and attributing the corresponding credits. If you have any questions about the license or how to use the code, please do not hesitate to contact us.
