@@ -7,7 +7,7 @@ import "sync"
 type Action func(minX, minY, maxX, maxY int)
 
 // This function receive the width, height of image or slice and divide (width / parallel is the size of every region, only last region can have a diferent size) it by regions of the same sizes using parallel, then run action on the region.
-func ParallelRegionHorizontal(width, height, parallel int, action Action) {
+func ParallelRegionVertical(width, height, parallel int, action Action) {
 	wdx := width / parallel
 	wRegions := make([]int, parallel+1)
 	for i := 0; i < parallel; i++ {
@@ -26,7 +26,7 @@ func ParallelRegionHorizontal(width, height, parallel int, action Action) {
 }
 
 // This function receive the width, height of image or slice and divide (height / parallel is the size of every region, only last region can have a diferent size) it by regions of the same sizes using parallel, then run action on the region.
-func ParallelRegionVertical(width, height, parallel int, action Action) {
+func ParallelRegionHorizontal(width, height, parallel int, action Action) {
 	hdy := height / parallel
 	hRegions := make([]int, parallel+1)
 	for i := 0; i < parallel; i++ {
@@ -49,8 +49,8 @@ func ParallelWindow(width, height, window, parallel int, action Action) {
 	prll := make(chan int, parallel)
 	wg := sync.WaitGroup{}
 	width, height = width-window, height-window
-	for x := 0; x < width; x += window {
-		for y := 0; y < height; y += window {
+	for x := 0; x <= width; x += window {
+		for y := 0; y <= height; y += window {
 			wg.Add(1)
 			go func(x, y int) {
 				defer wg.Done()
